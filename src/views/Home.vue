@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <h1>Homepage</h1>
+    <h1>Dashboard</h1>
     <h2>Text classes</h2>
     <p
       class="red white--text"
@@ -51,9 +51,13 @@
 </template>
 
 <script>
-// @ is an alias to /src
-
 export default {
-  name: "Home"
+  name: "Dashboard",
+  data() {
+    return {};
+  }
 };
 </script>
+
+<style>
+</style>
