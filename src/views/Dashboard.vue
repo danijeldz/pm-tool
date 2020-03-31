@@ -2,7 +2,17 @@
   <div class="dashboard">
     <h1 class="subheading grey--text">Dashboard</h1>
     <v-container class="my-5">
-      <v-card flat class="pl-4" v-for="(project, index) in projects" :key="index">
+      <v-layout row class="mb-3">
+        <v-btn small text color="grey" @click="sortBy('title')">
+          <v-icon left small>folder</v-icon>
+          <span class="caption text-lowercase">By project name</span>
+        </v-btn>
+        <v-btn small text color="grey" @click="sortBy('person')">
+          <v-icon left small>person</v-icon>
+          <span class="caption text-lowercase">By person</span>
+        </v-btn>
+      </v-layout>
+      <v-card text class="pl-4" v-for="(project, index) in projects" :key="index">
         <v-layout row wrap :class="`project pa-3 ${project.status}`">
           <v-flex xs12 md6>
             <div class="caption grey--text">Project title:</div>
@@ -71,6 +81,11 @@ export default {
         }
       ]
     };
+  },
+  methods: {
+    sortBy(prop) {
+      this.projects.sort((a, b) => (a[prop] < b[prop] ? -1 : 1));
+    }
   }
 };
 </script>
