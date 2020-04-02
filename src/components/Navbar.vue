@@ -7,6 +7,23 @@
         <span>Ninja</span>
       </v-toolbar-title>
       <v-spacer></v-spacer>
+
+      <!-- Dropdown menu -->
+
+      <v-menu offset-y>
+        <template v-slot:activator="{on}">
+          <v-btn text color="primary" dark v-on="on">
+            <v-icon left>expand_more</v-icon>
+            <span>Menu</span>
+          </v-btn>
+        </template>
+        <v-list>
+          <v-list-item v-for="(item,index) in links" :key="index" router :to="item.route">
+            <v-list-item-title>{{ item.text }}</v-list-item-title>
+          </v-list-item>
+        </v-list>
+      </v-menu>
+
       <v-btn text color="grey">
         <span>Sign Out</span>
         <v-icon right>exit_to_app</v-icon>
@@ -43,7 +60,7 @@ export default {
     return {
       drawer: false,
       links: [
-        { icon: "dashboard", text: "Dashboards", route: "/" },
+        { icon: "dashboard", text: "Dashboard", route: "/" },
         { icon: "folder", text: "My Projects", route: "/projects" },
         { icon: "person", text: "Team", route: "/team" }
       ]
