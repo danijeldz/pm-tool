@@ -5,18 +5,36 @@
     </template>
     <v-card>
       <v-card-title>
-        <h2>Add new project</h2>
+        <h2>Add a new project</h2>
       </v-card-title>
-      <v-card-text>Here goes form</v-card-text>
-      <v-card-divider></v-card-divider>
-      <v-card-actions>
+      <v-card-text>
+        <v-form class="px-3">
+          <v-text-field label="Title" v-model="title" prepend-icon="folder"></v-text-field>
+          <v-textarea label="Information" v-model="content" prepend-icon="edit"></v-textarea>
+          <v-btn text class="success mx-o mt-3" @click="submit">Add project</v-btn>
+        </v-form>
+      </v-card-text>
+
+      <!-- <v-card-actions>
         <v-spacer></v-spacer>
         <v-btn text color="primary" @click="dialog = false">Add project</v-btn>
-      </v-card-actions>
+      </v-card-actions>-->
     </v-card>
   </v-dialog>
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      title: "",
+      content: ""
+    };
+  },
+  methods: {
+    submit() {
+      console.log(this.title, this.content);
+    }
+  }
+};
 </script>
