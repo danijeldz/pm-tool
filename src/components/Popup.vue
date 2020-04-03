@@ -65,6 +65,7 @@ export default {
             console.log("added to db");
             this.loading = false;
             this.dialog = false;
+            this.$emit("projectAdded");
           });
       }
     }
