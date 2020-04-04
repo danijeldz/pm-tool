@@ -23,6 +23,7 @@
           <span>Sort by name</span>
         </v-tooltip>
       </v-layout>
+
       <v-card text class="pl-4" v-for="(project, index) in projects" :key="index">
         <v-layout row wrap :class="`project pa-3 ${project.status}`">
           <v-flex xs12 md6>
@@ -44,6 +45,15 @@
                 :class="`${project.status} v-chip--active white--text caption my-2`"
               >{{ project.status }}</v-chip>
             </div>
+          </v-flex>
+          <v-flex xs6 sm4 md2>
+            <v-btn
+              text
+              router
+              small
+              class="grey white--text mt-2 mb-1"
+              :to="{name: 'SingleProject', params: {project_slug: project.title}}"
+            >View project</v-btn>
           </v-flex>
         </v-layout>
         <v-divider></v-divider>
