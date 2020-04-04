@@ -3,6 +3,7 @@ import VueRouter from "vue-router"
 import Dashboard from "../views/Dashboard.vue"
 import Project from "../views/Projects.vue"
 import Team from "../views/Team.vue"
+import SingleProject from "../views/SingleProject"
 
 Vue.use(VueRouter)
 
@@ -21,6 +22,11 @@ const routes = [
     path: "/team",
     name: "team",
     component: Team
+  },
+  {
+    path: "/project/:project_slug",
+    name: "SingleProject",
+    component: SingleProject
   }
 ]
 
