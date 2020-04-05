@@ -34,6 +34,7 @@
 //import format from "date-fns/format";
 import moment from "moment";
 import db from "@/firebase/init";
+import slugify from "slugify";
 
 export default {
   data() {
@@ -57,7 +58,8 @@ export default {
           content: this.content,
           dueDate: moment(this.due).format("Do MMMM YYYY"),
           person: "Danijel",
-          status: "ongoing"
+          status: "ongoing",
+          slug: slugify(this.title, { remove: /[*+~.()'"!:@]/g, lower: true })
         };
         db.collection("projects")
           .add(project)

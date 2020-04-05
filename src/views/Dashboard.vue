@@ -52,7 +52,7 @@
               router
               small
               class="grey white--text mt-2 mb-1"
-              :to="{name: 'SingleProject', params: {project_slug: project.title}}"
+              :to="{name: 'SingleProject', params: {project_slug: project.slug}}"
             >View project</v-btn>
           </v-flex>
         </v-layout>
