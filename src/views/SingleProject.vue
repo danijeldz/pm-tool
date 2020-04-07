@@ -8,7 +8,7 @@
         <v-card-text>{{ project.content }}</v-card-text>
         <v-card-actions>
           <v-btn class="success">Edit</v-btn>
-          <v-btn class="warning">Delete</v-btn>
+          <v-btn class="warning" @click="deleteProject">Delete</v-btn>
         </v-card-actions>
       </v-card>
     </v-container>
@@ -24,6 +24,16 @@ export default {
     return {
       project: {}
     };
+  },
+  methods: {
+    deleteProject() {
+      db.collection("projects")
+        .doc(this.project.id)
+        .delete()
+        .then(() => {
+          this.$router.push({ name: "dashboard" });
+        });
+    }
   },
   created() {
     let ref = db
