@@ -51,7 +51,7 @@
 					<v-avatar size="100">
 						<img src="/male3.svg" alt />
 					</v-avatar>
-					<p class="white--text subheading">John Doe</p>
+					<p class="white--text subheading text-center">John Doe</p>
 				</v-flex>
 				<v-flex class="mt-2 mb-3">
 					<Popup @projectAdded="snackbar = true" />
